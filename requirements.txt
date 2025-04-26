@@ -1,6 +1,8 @@
 Django>=4.2
 djangorestframework
 langchain
+langchain>=0.1.0
+langchain-community>=0.0.1
 chromadb
 python-dotenv
 openai
