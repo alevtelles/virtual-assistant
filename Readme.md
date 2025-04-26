@@ -2,15 +2,19 @@
 
 Backend para criação de assistentes virtuais treinados com documentos.
 
-## 📦 Criação de Ambiente Python
+## 🎯 Público-alvo:
 
-1. Crie o ambiente virtual:
+- Pequenas e médias empresas que querem automatizar atendimento.
+- Escritórios de advocacia, imobiliárias, escolas, consultorias.
+- Sites de e-commerce que querem atendimento 24h.
 
-```bash
-python3 -m venv venv
-```
+## 📈 Diferença/Competitividade:
 
----
+- Super personalizável (não é só "um robô genérico").
+- Fácil de integrar (copiar e colar um script).
+- Treinado com o próprio conteúdo da empresa.
+
+"Mais barato que soluções enterprise como IBM Watson ou Salesforce AI."
 
 ## 🛠️ Como seria tecnicamente:
 
