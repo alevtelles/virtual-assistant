@@ -41,3 +41,84 @@ Backend para criação de assistentes virtuais treinados com documentos.
         - Fazer upload de documentos, PDFs, páginas da web.
         - Personalizar a aparência (cor, logo, frases).
         - Integrar o assistente no site da empresa com código de incorporação.
+
+### 🏗️ Estrutura de Diretórios (MVP)
+
+```
+backend/
+├── manage.py
+├── backend/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── wsgi.py
+│   ├── asgi.py
+├── assistentes/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── migrations/
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── serializers.py
+│   ├── views.py
+│   ├── urls.py
+│   ├── langchain_service.py
+├── requirements.txt
+└── README.md
+
+```
+
+### 🧠 Esboço da Arquitetura
+
+```
+
+[Usuário]
+↓
+[Frontend (Next.js)]
+↓
+[Backend (Django REST API)]
+↓
+[LangChain Service Layer]
+↔
+[Armazenamento Vetorial (ChromaDB/FAISS)]
+↔
+[LLM (OpenAI, Mistral, etc.)]
+
+```
+
+---
+
+- Frontend chama backend via REST.
+- Backend gerencia usuários, uploads de documentos e configuração dos assistentes
+- LangChain manipula os dados e interage com o modelo de linguagem.
+- Armazenamento vetorial para buscar respostas relevantes nos documentos.
+
+### 🖌️ Diagrama da Plataforma
+
+```
+
+┌─────────────────────┐
+│ Frontend (Next) │
+│ Painel + Widget Chat │
+└─────────┬───────────┘
+│
+▼
+┌─────────────────────┐
+│ Backend (Django API)│
+│ Auth, CRUD, Uploads │
+└─────────┬───────────┘
+│
+▼
+┌─────────────────────┐
+│ LangChain Service │
+│ (Chat Flow + RAG) │
+└─────────┬───────────┘
+│
+▼
+┌─────────────────────┐
+│ Vetor Store (Chroma)│
+│ + LLM Provider (GPT) │
+└─────────────────────┘
+
+```
