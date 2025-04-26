@@ -5,9 +5,9 @@ services:
     image: postgres:15-alpine
     container_name: virtual_assistant_db
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-virtual_assistant}
-      POSTGRES_USER: ${POSTGRES_USER:-postgres}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: virtual_assistant
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"
     volumes:
@@ -17,26 +17,6 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
-    networks:
-      - virtual-assistant-network
-
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin
-    environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@admin.com}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-    ports:
-      - "5050:80"
-    depends_on:
-      postgres:
-        condition: service_healthy
-    networks:
-      - virtual-assistant-network
-
-networks:
-  virtual-assistant-network:
-    driver: bridge
 
 volumes:
   postgres_data:
